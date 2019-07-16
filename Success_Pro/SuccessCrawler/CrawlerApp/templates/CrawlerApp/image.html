@@ -1,0 +1,11 @@
+{% extends 'CrawlerApp/base.html'%}
+{% block content %}
+{% for image in image%}
+<p>{{image}}</p>
+{%endfor%}
+{% for url in url%}
+{{url}}
+<div><img src="{{url}}" height="100" width="100"></div>
+{%endfor%}
+
+{%endblock%}

@@ -1,0 +1,38 @@
+{% extends 'CrawlerApp/base.html'%}
+{% block content %}
+<h1> Current URL is : {{url}}</h1>
+<div class="allurl">
+    <h2> All Url Present in Provided url</h2>
+{% for a in final_data %}
+<p>{{a}}</p>
+{% endfor %}
+
+</div>
+<div class="links">
+    <h3> Links in url</h3>
+    {% for a in links %}
+<p>{{a}}</p>
+{% endfor %}
+</div>
+<div class="pages">
+    <h3>pages in url</h3>
+    {% for a in page %}
+<p>{{a}}</p>
+{% endfor %}
+</div >
+<div class="pages">
+    <h3>Sub-pages in url</h3>
+   {% for page_set in list_of_page|slice:":1"%}
+        {%for page in page_set%}
+            <p> {{page}}</p>
+        {%endfor%}
+    {%endfor%}
+</div>
+<div class="pages">
+    <h3>Images in url</h3>
+
+            <p> {{image_name}}</p>
+    {% for image_name in final_image %}
+    {%endfor%}
+</div>
+{%endblock%}
