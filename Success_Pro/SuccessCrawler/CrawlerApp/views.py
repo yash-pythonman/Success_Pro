@@ -120,14 +120,14 @@ class Crawler(View):
 
 
 def find_image(url):
+    print("url in finding imgfun", url)
     img_parse=ImgParser()
     img_parse.image_set.clear()
-    for url_a in url:
-        print("url in finding image", url)
-        url_data=urlopen(url_a)
-        data_read = url_data.read()
-        html_data = data_read.decode('utf-8')
-        img_parse.feed(html_data)
+    print("url in finding image", url)
+    url_data=urlopen(url)
+    data_read = url_data.read()
+    html_data = data_read.decode('utf-8')
+    img_parse.feed(html_data)
     return img_parse.image_set
 
 '''
@@ -144,9 +144,9 @@ def find_image(url):
 
 
 def find_page(url):
+    print("url in finding page", url)
     page_parse=MyHtmlParser()
     page_parse.url_set.clear()
-    print("url in finding page", url)
     url_data=urlopen(url)
     data_read = url_data.read()
     html_data = data_read.decode('utf-8')
