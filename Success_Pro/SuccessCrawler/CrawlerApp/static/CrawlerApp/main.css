@@ -1,56 +1,83 @@
-.header{
-    height:100px;
-    background-color:grey
-    }
+  .header{
+                height:100px;
+                background-color:grey
+                }
 
-.logo{
-    height:70px;
-    width:100px;
-    color:white;
-    font-size:20px;
-    padding-top:30px;
-    padding-left:10px;
-    border:solid 1px white;
-    background-color:red;
-    float:left;
-    }
+            .logo{
+                height:70px;
+                width:100px;
+                color:white;
+                font-size:20px;
+                padding-top:30px;
+                padding-left:10px;
+                border:solid 1px white;
+                background-color:red;
+                float:left;
+                }
 
-.form{
-    width:600px;
-    margin-left:25%;
-    margin-top:50px;
-    box-shadow: 10px 10px 5px grey;
-    }
+            .form{
+                width:600px;
+                margin-left:25%;
+                margin-top:50px;
+                box-shadow: 10px 10px 5px grey;
+                }
 
-input{
-    height:50px;
-    font-size:15px;
-    margin:2px;
-    border:solid 1px grey;
-    padding:5px;
-    }
+            input{
+                height:50px;
+                font-size:15px;
+                margin:2px;
+                border:solid 1px grey;
+                padding:5px;
+                }
 
-#btn{
-    background-color:grey;
-    color:white;
-    }
+            #btn{
+                background-color:grey;
+                color:white;
+                }
 
-#btn:hover{
-    background-color:red;
-    }
-a{
-    text-decoration:none;
-    font-size:20px;
-    color:grey;
-    float:left;
-    margin-top:50px;
-    margin-left:50px;
-    background-color:white;
-    border:2px solid red;
-    padding: 5px;
-    }
+            #btn:hover{
+                background-color:red;
+                }
+            a{
+                text-decoration:none;
+                font-size:20px;
+                color:grey;
+                float:left;
+                margin-top:50px;
+                margin-left:50px;
+                background-color:white;
+                border:2px solid red;
+                padding: 5px;
+                }
 
-a:hover{
-    background-color:red;
-    color:white;
-    }
+            a:hover{
+                background-color:red;
+                color:white;
+                }
+
+            .allurl{
+                width=400px;
+                border:solid grey 2px;
+                display:none;
+                }
+            .links{
+                width=auto;
+                padding:20px;
+                margin:5px;
+                border:solid grey 2px;
+                float:left;
+                }
+            .pages{
+                width=auto;
+                padding:20px;
+                margin:5px;
+                border:solid grey 2px;
+                float:left;
+                }
+            .image{
+                width=auto;
+                padding:20px;
+                margin:5px;
+                border:solid grey 2px;
+                float:left;
+                }

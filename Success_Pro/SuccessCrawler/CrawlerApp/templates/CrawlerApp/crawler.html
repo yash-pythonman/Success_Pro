@@ -20,6 +20,16 @@
 <p>{{a}}</p>
 {% endfor %}
 </div >
+
+
+
+<div class="image">
+    <h3>Images in url</h3>
+    {% for image in list_of_image%}
+    <img src="{{image}}" height="100" width="100">
+    {%endfor%}
+
+</div>
 <div class="pages">
     <h3>Sub-pages in url</h3>
    {% for page_set in list_of_page|slice:":1"%}
@@ -28,11 +38,5 @@
         {%endfor%}
     {%endfor%}
 </div>
-<div class="pages">
-    <h3>Images in url</h3>
 
-            <p> {{image_name}}</p>
-    {% for image_name in final_image %}
-    {%endfor%}
-</div>
 {%endblock%}

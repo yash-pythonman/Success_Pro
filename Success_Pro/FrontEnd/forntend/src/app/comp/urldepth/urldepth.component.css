@@ -1,0 +1,28 @@
+input{
+    height: 40px;
+    width: 400px;
+    margin-left:100px;
+    font-size: 15px;
+    padding: 10px;
+}
+.depth{
+    height: 40px;
+    width: 100px;
+    margin: 10px;
+    font-size:15px;
+    padding: 10px;
+}
+button{ 
+    height: 60px;
+    width: 200px;
+    margin: 10px;
+    font-size: 20px;
+    padding: 10px;
+}
+h2{ 
+    margin-left: 100px;   
+}  
+button:hover{
+    background-color: red;
+    color: aliceblue;
+} 

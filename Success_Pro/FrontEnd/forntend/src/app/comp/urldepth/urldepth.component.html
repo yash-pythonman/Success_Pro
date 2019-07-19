@@ -1,0 +1,8 @@
+<div>
+     <h2>Success Crawler </h2>
+    <form [formGroup]="urldepth" >
+            <input type="text" formControlName="url" placeholder="Enter Url like: https://facebook.com">
+            <input type="number" class="depth" formControlName="depth" placeholder="Depth Ex.: 1">
+            <button (click)="formData()"> Start Craweling </button>
+    </form>
+</div>

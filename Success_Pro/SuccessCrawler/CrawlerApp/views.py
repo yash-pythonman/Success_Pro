@@ -7,36 +7,38 @@ from . import forms
 from html.parser import HTMLParser
 from urllib.request import urlopen
 from urllib.parse import urlparse
+from .models import BaseUrl
+from .serializers import *
+from rest_framework import generics
+from .models import *
 # Create your views here.
 
 
 def index(request):
-    t = datetime
-    time = t.now()
     form=forms.UrlForm
-    return render(request, "CrawlerApp/index.html", {'form':form})
+    return render(request, "CrawlerApp/index.html", {'form': form})
 
 
 class MyHtmlParser(HTMLParser):
-    s=set()
+    url_set=set()
 
     def handle_starttag(self,tag,attrs):
         if tag == 'a':
             for name,value in attrs:
                 if name == "href":
                     url = value
-                    self.s.add(url)
+                    self.url_set.add(url)
 
 
 class ImgParser(HTMLParser):
-    image_list = set()
+    image_set = set()
 
     def handle_startendtag(self, tag, attrs):
         if tag == 'img':
             for name, value in attrs:
                 if name == 'src':
                     img=value
-                    self.image_list.add(img)
+                    self.image_set.add(img)
 
 
 class Crawler(View):
@@ -46,76 +48,104 @@ class Crawler(View):
     sub_links = set()
     links = set()
     page = set()
-    list_of_image = []
+    sub_page_url = set()
+    list_of_image = set()
     parser = MyHtmlParser()
     url = ''
+    depth = 0
 
     def get(self, request):
         if request.method == 'GET':
             self.list_of_link.clear()
             self.list_of_page.clear()
+            self.sub_page.clear()
+            self.sub_page_url.clear()
             self.links.clear()
             self.page.clear()
-            self.parser.s.clear()
+            self.list_of_image.clear()
+            self.parser.url_set.clear()
             data = request.GET
             Crawler.url = data.get('url')
-            data=urlopen(self.url)
-            url_data = data.read()
-            html_data=url_data.decode("utf-8")
-            self.parser.feed(html_data)
-            final_data=self.parser.s
+            Crawler.depth = data.get('depth')
+            print(type(Crawler.depth))
+            final_data=find_page(Crawler.url)
             for page in final_data:
-                d1 = urlparse(page).netloc
-                r1 = d1.split('.')
-                if r1[-1] and r1[-2] in r1:
-                    self.links.add(r1[-2]+'.'+r1[-1])
+                url_parse = urlparse(page).netloc
+                url_split = url_parse.split('.')
+                if url_split[-1] and url_split[-2] in url_split:
+                    self.links.add(url_split[-2]+'.'+url_split[-1])
                 else:
+                    if '@' in page:
+                        continue
                     self.page.add(page)
-            for page_url in self.page:
-                self.page_crawler(page_url, self.url)
-            content = {'final_data': final_data, 'links': self.links, 'page': self.page, 'url': self.url,
-                       'list_of_page': self.list_of_page, 'list_of_link': self.list_of_link}
+            if self.depth == '1':
+                final_image_data=find_image(Crawler.url)
+                for image in final_image_data:
+                    img_prs = urlparse(image).scheme
+                    if img_prs != "":
+                        self.list_of_image.add(image)
+                    else:
+                        self.list_of_image.add(Crawler.url+image)
+            content = {'links': self.links, 'page': self.page, 'url': self.url,
+                       'list_of_page': self.list_of_page, 'list_of_link': self.list_of_link,
+                       'list_of_image': self.list_of_image}
+            if Crawler.depth == '2':
+                self.list_of_image.clear()
+                for page_url in self.page:
+                    if Crawler.url.endswith('/') and page_url.startswith('/'):
+                        Crawler.url = Crawler.url[:-1]
+                    self.sub_page_url.add(Crawler.url+page_url)
+                for sub_page in self.sub_page_url:
+                    if '@' in sub_page:
+                        continue
+                    print(sub_page)
+                    final_image_data = find_image(sub_page)
+                    for image in final_image_data:
+                        img_prs = urlparse(image).scheme
+                        if img_prs != "":
+                            self.list_of_image.add(image)
+                        else:
+                            self.list_of_image.add(sub_page+image)
+                    self.list_of_page.append(find_page(sub_page))
+                for item in self.list_of_page:
+                    if '@' in item:
+                        continue
+                    self.list_of_page.append(item)
+                print(self.list_of_page)
+                print(self.list_of_image)
+                content = {'links': self.links, 'page': self.page, 'url': self.url,
+                        'list_of_page': self.list_of_page, 'list_of_link': self.list_of_link, 'list_of_image':self.list_of_image}
             return render(request, 'CrawlerApp/crawler.html',content)
-
-    def page_crawler(self, page_url, home_url):
-        self.sub_page.clear()
-        self.list_of_page.clear()
-        try:
-            if home_url[-1] and page_url[0] == '/':
-                home_url = home_url[:-1]
-            data = urlopen(home_url+page_url)
-            url_data=data.read()
-            html_data=url_data.decode("utf-8")
-            self.parser.feed(html_data)
-        except:
-            pass
-        final_data = self.parser.s
-        for page1 in final_data:
-            d1 = urlparse(page1).netloc
-            r1 = d1.split('.')
-            if r1[-1] and r1[-2] in r1:
-                self.sub_links.add(r1[-2] + '.' + r1[-1])
-            else:
-                if page1 in self.page:
-                    pass
-                else:
-                    self.sub_page.add(page1)
-        self.list_of_page.append(self.sub_page)
 
 
 def find_image(url):
     img_parse=ImgParser()
-    img_parse.image_list.clear()
-    url_data=urlopen(url)
-    data_read=url_data.read()
-    html_data=data_read.decode('utf-8')
-    img_parse.feed(html_data)
-    print(type(url_data))
-    return img_parse.image_list
+    img_parse.image_set.clear()
+    for url in url:
+        url_data=urlopen(url)
+        data_read = url_data.read()
+        html_data = data_read.decode('utf-8')
+        img_parse.feed(html_data)
+    return img_parse.image_set
 
 
+def find_page(url):
+    page_parse=MyHtmlParser()
+    page_parse.url_set.clear()
+    try:
+        url_data=urlopen(url)
+        data_read = url_data.read()
+        html_data = data_read.decode('utf-8')
+        page_parse.feed(html_data)
+    except:
+        print("can not open this url :", url)
+    return page_parse.url_set
+
+'''
 def image_view(request):
     src_value = set()
+    sub_page_url= set()
+    sub_page_image=set()
     url = Crawler.url
     image = find_image(url)
     for src in image:
@@ -124,13 +154,44 @@ def image_view(request):
             src_value.add(src)
         else:
             src_value.add(url+src)
-    content = {'image': image, 'url': src_value}
+    for page_url in Crawler.page:
+        if Crawler.url.endswith('/') and page_url.startswith('/'):
+            Crawler.url=Crawler.url[:-1]
+        sub_page_url.add(Crawler.url+page_url)
+    sub_page_image=map(find_image, sub_page_url)
+    sub_page_image_list=list(sub_page_image)
+    content = {'image': image, 'home_url': Crawler.url, 'url': src_value, 'sub_page_image':sub_page_image_list[0]}
     return render(request, 'CrawlerApp/image.html', content)
+'''
 
 
-class ImageInUrl(View):
-    pass
+class BaseUrlView(generics.ListCreateAPIView):
+    queryset = BaseUrl.objects.all()
+    serializer_class = BaseUrlSerializers
 
 
+class PageUrlView(generics.ListCreateAPIView):
+    queryset = PageUrl.objects.all()
+    serializer_class = PageUrlSerializers
 
+
+class SubPageView(generics.ListCreateAPIView):
+    queryset = SubPage.objects.all()
+    serializer_class = SubPageSerializer
+
+
+class BaseUrlImageView(generics.ListCreateAPIView):
+    queryset = BaseUrlImages.objects.all()
+    serializer_class = BaseUrlSerializers
+
+
+class PageImagesView(generics.ListCreateAPIView):
+    queryset = PageImages.objects.all()
+    serializer_class = PageImagesSerializer
+
+class UrlDepthView(generics.ListCreateAPIView):
+    queryset = UrlDepth.objects.all()
+    serializer_class = UrlDepthSerializer
+    def get_queryset(self):
+        print("this is queryset method")
 

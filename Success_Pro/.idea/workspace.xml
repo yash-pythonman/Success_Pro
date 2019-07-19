@@ -1,7 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78f717a6-cfd1-4d81-855b-f7f96cefe187" name="Default Changelist" comment="" />
+    <list default="true" id="78f717a6-cfd1-4d81-855b-f7f96cefe187" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/SuccessCrawler/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SuccessCrawler/SuccessCrawler/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/browserslist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/e2e/protractor.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/e2e/src/app.e2e-spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/e2e/src/app.po.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/e2e/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/src/app/app.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/src/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/src/environments/environment.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/src/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/src/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/src/polyfills.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/src/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/src/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/static/frontend/tslint.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/views.py" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -10,11 +54,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="58" column="12" lean-forward="true" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
+            <state relative-caret-position="2715">
+              <caret line="193" column="41" selection-start-line="193" selection-start-column="41" selection-end-line="193" selection-end-column="41" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -23,28 +67,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/templates/CrawlerApp/image.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/templates/CrawlerApp/crawler.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="1" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/templates/CrawlerApp/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="88" column="29" lean-forward="true" selection-start-line="88" selection-start-column="29" selection-end-line="88" selection-end-column="29" />
+            <state relative-caret-position="150">
+              <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SuccessCrawler/SuccessCrawler/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1086">
+              <caret line="92" column="1" selection-start-line="92" selection-start-column="1" selection-end-line="92" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/serializers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="34" column="54" selection-start-line="34" selection-start-column="54" selection-end-line="34" selection-end-column="54" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -52,11 +99,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="37" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="37" />
+            <state relative-caret-position="210">
+              <caret line="14" column="21" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="21" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="26" column="43" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -66,41 +122,46 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/SuccessCrawler" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/SuccessCrawler/SuccessCrawler/settings.py" />
         <option value="$PROJECT_DIR$/SuccessCrawler/SuccessCrawler/urls.py" />
-        <option value="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/models.py" />
-        <option value="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/forms.py" />
         <option value="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/static/css/main.css" />
         <option value="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/static/CrawlerApp/home.css" />
-        <option value="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/templates/CrawlerApp/index.html" />
-        <option value="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/templates/CrawlerApp/crawler.html" />
-        <option value="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/urls.py" />
         <option value="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/templates/CrawlerApp/image.html" />
+        <option value="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/forms.py" />
+        <option value="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/static/CrawlerApp/main.css" />
+        <option value="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/templates/CrawlerApp/crawler.html" />
+        <option value="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/templates/CrawlerApp/index.html" />
         <option value="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/templates/CrawlerApp/base.html" />
+        <option value="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/models.py" />
+        <option value="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/serializers.py" />
         <option value="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/views.py" />
+        <option value="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/urls.py" />
+        <option value="$PROJECT_DIR$/SuccessCrawler/SuccessCrawler/settings.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="80" />
-    <option name="y" value="47" />
-    <option name="width" value="1276" />
-    <option name="height" value="701" />
+    <option name="x" value="70" />
+    <option name="y" value="27" />
+    <option name="width" value="455" />
+    <option name="height" value="668" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -119,38 +180,22 @@
               <item name="SuccessCrawler" type="462c0819:PsiDirectoryNode" />
               <item name="CrawlerApp" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Success_Pro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Success_Pro" type="462c0819:PsiDirectoryNode" />
-              <item name="SuccessCrawler" type="462c0819:PsiDirectoryNode" />
-              <item name="CrawlerApp" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Success_Pro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Success_Pro" type="462c0819:PsiDirectoryNode" />
-              <item name="SuccessCrawler" type="462c0819:PsiDirectoryNode" />
-              <item name="CrawlerApp" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="CrawlerApp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Success_Pro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Success_Pro" type="462c0819:PsiDirectoryNode" />
-              <item name="SuccessCrawler" type="462c0819:PsiDirectoryNode" />
-              <item name="SuccessCrawler" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/SuccessCrawler/CrawlerApp" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/SuccessCrawler/CrawlerApp" />
+      <recent name="$PROJECT_DIR$/SuccessCrawler/static" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/static/CrawlerApp" />
     </key>
@@ -184,7 +229,7 @@
     <frame x="70" y="27" width="1296" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24980362" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24980362" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -195,7 +240,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3294893" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3289256" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -222,6 +267,22 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout-to-restore>
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/forms.py</url>
+          <option name="temporary" value="true" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/views.py</url>
+          <line>92</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/SuccessCrawler/SuccessCrawler/urls.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -233,38 +294,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/SuccessCrawler/static/CrawlerApp/main.css" />
+    <entry file="file://$PROJECT_DIR$/SuccessCrawler/static/CrawlerApp/home.css" />
+    <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/static/CrawlerApp/home.css" />
     <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/static/CrawlerApp/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" lean-forward="true" selection-end-line="55" selection-end-column="5" />
+        <state relative-caret-position="181">
+          <caret line="76" column="12" lean-forward="true" selection-start-line="76" selection-start-column="12" selection-end-line="76" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/static/CrawlerApp/home.css">
+    <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/templates/CrawlerApp/crawler.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="11" column="34" lean-forward="true" selection-end-line="38" selection-end-column="17" />
+        <state relative-caret-position="276">
+          <caret line="31" column="6" lean-forward="true" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SuccessCrawler/SuccessCrawler/settings.py">
+    <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/templates/CrawlerApp/image.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="65" selection-start-line="22" selection-start-column="65" selection-end-line="22" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+        <state relative-caret-position="135">
+          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -275,44 +325,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/templates/CrawlerApp/image.html">
+    <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="75">
+          <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2715">
+          <caret line="193" column="41" selection-start-line="193" selection-start-column="41" selection-end-line="193" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/templates/CrawlerApp/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="34" column="54" selection-start-line="34" selection-start-column="54" selection-end-line="34" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="43" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="37" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="37" />
+        <state relative-caret-position="210">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="21" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/templates/CrawlerApp/crawler.html">
+    <entry file="file://$PROJECT_DIR$/SuccessCrawler/SuccessCrawler/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="1" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/templates/CrawlerApp/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="88" column="29" lean-forward="true" selection-start-line="88" selection-start-column="29" selection-end-line="88" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="58" column="12" lean-forward="true" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1086">
+          <caret line="92" column="1" selection-start-line="92" selection-start-column="1" selection-end-line="92" selection-end-column="1" />
         </state>
       </provider>
     </entry>
