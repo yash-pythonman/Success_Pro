@@ -1,0 +1,19 @@
+a {
+    margin: 20px;
+    border: red solid 2px;
+    padding: 10px;
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.header{
+    height: 100px;
+    margin: 50px;
+}
+
+a:hover{
+    background-color: white;
+    color: red;
+}

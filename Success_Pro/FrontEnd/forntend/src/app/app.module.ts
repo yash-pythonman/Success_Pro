@@ -3,8 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegistationComponent } from './comp/registation/registation.component';
-import { ShowdataComponent } from './comp/showdata/showdata.component';
+
 
 import { HttpClient, HttpClientModule } from  '@angular/common/http';
 import { UrldepthComponent } from './comp/urldepth/urldepth.component';
@@ -15,8 +14,6 @@ import { SubpageimageComponent } from './comp/subpageimage/subpageimage.componen
 @NgModule({
   declarations: [
     AppComponent,
-    RegistationComponent,
-    ShowdataComponent,
     UrldepthComponent,
     HomepageurlComponent,
     SubpageurlComponent,
