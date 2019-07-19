@@ -69,6 +69,7 @@ class Crawler(View):
             Crawler.depth = data.get('depth')
             print(type(Crawler.depth))
             final_data=find_page(Crawler.url)
+            print(Crawler.url)
             for page in final_data:
                 url_parse = urlparse(page).netloc
                 url_split = url_parse.split('.')
@@ -121,24 +122,35 @@ class Crawler(View):
 def find_image(url):
     img_parse=ImgParser()
     img_parse.image_set.clear()
+    for url_a in url:
+        print("url in finding image", url)
+        url_data=urlopen(url_a)
+        data_read = url_data.read()
+        html_data = data_read.decode('utf-8')
+        img_parse.feed(html_data)
+    return img_parse.image_set
+
+'''
+def find_image(url):
+    img_parse=ImgParser()
+    img_parse.image_set.clear()
     for url in url:
         url_data=urlopen(url)
         data_read = url_data.read()
         html_data = data_read.decode('utf-8')
         img_parse.feed(html_data)
     return img_parse.image_set
+'''
 
 
 def find_page(url):
     page_parse=MyHtmlParser()
     page_parse.url_set.clear()
-    try:
-        url_data=urlopen(url)
-        data_read = url_data.read()
-        html_data = data_read.decode('utf-8')
-        page_parse.feed(html_data)
-    except:
-        print("can not open this url :", url)
+    print("url in finding page", url)
+    url_data=urlopen(url)
+    data_read = url_data.read()
+    html_data = data_read.decode('utf-8')
+    page_parse.feed(html_data)
     return page_parse.url_set
 
 '''
@@ -167,7 +179,7 @@ def image_view(request):
 
 class BaseUrlView(generics.ListCreateAPIView):
     queryset = BaseUrl.objects.all()
-    serializer_class = BaseUrlSerializers
+    serializer_class=BaseUrlImagesSerializer
 
 
 class PageUrlView(generics.ListCreateAPIView):
@@ -192,6 +204,6 @@ class PageImagesView(generics.ListCreateAPIView):
 class UrlDepthView(generics.ListCreateAPIView):
     queryset = UrlDepth.objects.all()
     serializer_class = UrlDepthSerializer
-    def get_queryset(self):
+    def get_queryset(self,):
         print("this is queryset method")
 
