@@ -66,9 +66,7 @@ def find_page(url):
     return page_parse.url_set
 
 
-def home_page():
-    data=UrlDepth.objects.values_list('url', flat=True)
-    data=data[0]
+def home_page(data):
     page_url=find_page(data)
     for page in page_url:
         url_parse = urlparse(page).netloc
@@ -79,7 +77,7 @@ def home_page():
             if '@' in page:
                 continue
         if data.endswith('/') and page.startswith('/'):
-            sup_page=data[:,-1]+page
+            sup_page=data+page[1:]
         elif data.endswith('/') or page.startswith('/'):
             sub_page=data+page
         else:
@@ -87,9 +85,8 @@ def home_page():
         url=PageUrl(page=sub_page, pk=None)
         url.save()
 
-def home_image():
-    data=UrlDepth.objects.values_list('url', flat=True)
-    data=data[0]
+def home_image(data):
+    image_set=set()
     if data.endswith('/'):
         data=data
     else:
@@ -97,14 +94,15 @@ def home_image():
     page_url=find_image(data)
     for image in page_url:
         if image.startswith('/'):
-            image=image[1,:]
+            image=image[1:]
         img_parse = urlparse(image).scheme
         if img_parse != "":
             sub_page_image=image
         else:
             sub_page_image=data+image
-        url=BaseUrlImages(home_image=sub_page_image, pk=None)
-        url.save()
+        image_set.add(sub_page_image)    
+    return image_set  
+        
 
 
 @api_view(['GET', 'POST'])
@@ -124,10 +122,26 @@ def UrlDepthView(request):
 class PageUrlView(APIView):
     def post(self, request):
         PageUrl.objects.all().delete()
-        home_page()            
+        data=UrlDepth.objects.values_list('url', flat=True)
+        data=data[0]
+        home_page(data)            
         urls = PageUrl.objects.all()
         serializeurl=PageUrlSerializers(urls, many=True)
         return Response(serializeurl.data, status=status.HTTP_200_OK)
+
+
+class BaseUrlImageView(APIView):
+    def post(self, request):
+        BaseUrlImages.objects.all().delete()
+        data=UrlDepth.objects.values_list('url', flat=True)
+        data=data[0]
+        image_set=home_image(data)
+        for sub_page_image in image_set:
+            url=BaseUrlImages(home_image=sub_page_image, pk=None)
+            url.save()
+        image = BaseUrlImages.objects.all()
+        serializeimage=BaseUrlImagesSerializer(image, many=True)
+        return Response(serializeimage.data, status=status.HTTP_200_OK)
 
 
 class SubPageView(APIView):
@@ -137,18 +151,16 @@ class SubPageView(APIView):
         return Response(serializpage.data, status.HTTP_200_OK)
 
 
-class BaseUrlImageView(APIView):
-    def post(self, request):
-        BaseUrlImages.objects.all().delete()
-        home_image()
-        image = BaseUrlImages.objects.all()
-        serializeimage=BaseUrlImagesSerializer(image, many=True)
-        return Response(serializeimage.data, status=status.HTTP_200_OK)
-    
-
 class PageImagesView(APIView):
     def post(self, request):
-        image = PageImages.objects.all()
+        PageImages.objects.all().delete()
+        data = PageUrl.objects.values_list('page', flat=True)
+        for url in data:
+            image_set=home_image(url)
+            for sub_page_image in image_set:
+                image=PageImages(page_image=sub_page_image, pk=None)
+                image.save()
+        image=PageImages.objects.all()
         serializimage=PageImagesSerializer(image, many=True)
         return Response(serializimage.data, status.HTTP_200_OK)
 

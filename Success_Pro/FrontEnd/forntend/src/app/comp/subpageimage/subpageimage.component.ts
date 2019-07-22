@@ -11,7 +11,9 @@ export class SubpageimageComponent implements OnInit {
   constructor(private subpage:CrawlerService) { }
   subpageimage:object
   ngOnInit() {
-    this.subpage.getSubPageImage().subscribe((res=>{this.subpageimage=res;}))
+    this.subpage.getSubPageImage().subscribe((res)=>{this.subpageimage=res;
+    console.log(this.subpageimage)
+    })
   }
 
 }

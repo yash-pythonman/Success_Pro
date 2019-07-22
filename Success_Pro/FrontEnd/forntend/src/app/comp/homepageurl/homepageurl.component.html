@@ -1,7 +1,2 @@
-<p>homepageurl works!</p>
+<p *ngFor="let item of homepageurls"> Url Provided by you : {{item.url}} <br> Depth Provided by you : {{item.depth}} </p>
 
-<ul>
-<li *ngFor="let item of homepageurls">
-    {{item.url+ " " + item.depth}}
-</li>
-</ul>
