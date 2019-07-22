@@ -1,16 +1,18 @@
 from django.shortcuts import render
 from django.shortcuts import HttpResponse
 from django.template import Template
-from datetime import datetime
+from rest_framework.views import APIView
 from django.views import View
+from rest_framework.response import Response
 from . import forms
 from html.parser import HTMLParser
 from urllib.request import urlopen
 from urllib.parse import urlparse
 from .models import BaseUrl
 from .serializers import *
-from rest_framework import generics
 from .models import *
+from rest_framework.decorators import api_view
+from rest_framework import status
 # Create your views here.
 
 
@@ -41,6 +43,117 @@ class ImgParser(HTMLParser):
                     self.image_set.add(img)
 
 
+def find_image(url):
+    print("url in finding imgfun", url)
+    img_parse=ImgParser()
+    img_parse.image_set.clear()
+    print("url in finding image", url)
+    url_data=urlopen(url)
+    data_read = url_data.read()
+    html_data = data_read.decode('utf-8')
+    img_parse.feed(html_data)
+    return img_parse.image_set
+
+
+def find_page(url):
+    print("url in finding page", url)
+    page_parse=MyHtmlParser()
+    page_parse.url_set.clear()
+    url_data=urlopen(url)
+    data_read = url_data.read()
+    html_data = data_read.decode('utf-8')
+    page_parse.feed(html_data)
+    return page_parse.url_set
+
+
+def home_page():
+    data=UrlDepth.objects.values_list('url', flat=True)
+    data=data[0]
+    page_url=find_page(data)
+    for page in page_url:
+        url_parse = urlparse(page).netloc
+        url_split = url_parse.split('.')
+        if url_split[-1] and url_split[-2] in url_split:
+            continue
+        else:
+            if '@' in page:
+                continue
+        if data.endswith('/') and page.startswith('/'):
+            sup_page=data[:,-1]+page
+        elif data.endswith('/') or page.startswith('/'):
+            sub_page=data+page
+        else:
+            sub_page=data+"/"+page
+        url=PageUrl(page=sub_page, pk=None)
+        url.save()
+
+def home_image():
+    data=UrlDepth.objects.values_list('url', flat=True)
+    data=data[0]
+    if data.endswith('/'):
+        data=data
+    else:
+        data=data+"/"
+    page_url=find_image(data)
+    for image in page_url:
+        if image.startswith('/'):
+            image=image[1,:]
+        img_parse = urlparse(image).scheme
+        if img_parse != "":
+            sub_page_image=image
+        else:
+            sub_page_image=data+image
+        url=BaseUrlImages(home_image=sub_page_image, pk=None)
+        url.save()
+
+
+@api_view(['GET', 'POST'])
+def UrlDepthView(request):
+    if request.method == 'POST':
+        UrlDepth.objects.all().delete()
+        seriazedata=UrlDepthSerializer(data=request.data)
+        if seriazedata.is_valid():
+            seriazedata.save()
+            return Response("Data is created", status=status.HTTP_201_CREATED)
+        return Response("method post but not workig", status=status.HTTP_400_BAD_REQUEST)
+    elif request.method =='GET':
+        HttpResponse ("method is post")
+    return HttpResponse("method is not get and not post", status.HTTP_400_BAD_REQUEST)
+
+
+class PageUrlView(APIView):
+    def post(self, request):
+        PageUrl.objects.all().delete()
+        home_page()            
+        urls = PageUrl.objects.all()
+        serializeurl=PageUrlSerializers(urls, many=True)
+        return Response(serializeurl.data, status=status.HTTP_200_OK)
+
+
+class SubPageView(APIView):
+    def post(self, request):
+        page = SubPage.objects.all()
+        serializpage=SubPageSerializer(page, many=True)
+        return Response(serializpage.data, status.HTTP_200_OK)
+
+
+class BaseUrlImageView(APIView):
+    def post(self, request):
+        BaseUrlImages.objects.all().delete()
+        home_image()
+        image = BaseUrlImages.objects.all()
+        serializeimage=BaseUrlImagesSerializer(image, many=True)
+        return Response(serializeimage.data, status=status.HTTP_200_OK)
+    
+
+class PageImagesView(APIView):
+    def post(self, request):
+        image = PageImages.objects.all()
+        serializimage=PageImagesSerializer(image, many=True)
+        return Response(serializimage.data, status.HTTP_200_OK)
+
+
+
 class Crawler(View):
     list_of_link = []
     list_of_page = []
@@ -53,6 +166,7 @@ class Crawler(View):
     parser = MyHtmlParser()
     url = ''
     depth = 0
+
 
     def get(self, request):
         if request.method == 'GET':
@@ -119,17 +233,6 @@ class Crawler(View):
             return render(request, 'CrawlerApp/crawler.html',content)
 
 
-def find_image(url):
-    print("url in finding imgfun", url)
-    img_parse=ImgParser()
-    img_parse.image_set.clear()
-    print("url in finding image", url)
-    url_data=urlopen(url)
-    data_read = url_data.read()
-    html_data = data_read.decode('utf-8')
-    img_parse.feed(html_data)
-    return img_parse.image_set
-
 '''
 def find_image(url):
     img_parse=ImgParser()
@@ -142,16 +245,6 @@ def find_image(url):
     return img_parse.image_set
 '''
 
-
-def find_page(url):
-    print("url in finding page", url)
-    page_parse=MyHtmlParser()
-    page_parse.url_set.clear()
-    url_data=urlopen(url)
-    data_read = url_data.read()
-    html_data = data_read.decode('utf-8')
-    page_parse.feed(html_data)
-    return page_parse.url_set
 
 '''
 def image_view(request):
@@ -177,33 +270,34 @@ def image_view(request):
 '''
 
 
-class BaseUrlView(generics.ListCreateAPIView):
+'''
+class BaseUrlView(APIView):
     queryset = BaseUrl.objects.all()
     serializer_class=BaseUrlImagesSerializer
+'''
 
 
-class PageUrlView(generics.ListCreateAPIView):
-    queryset = PageUrl.objects.all()
-    serializer_class = PageUrlSerializers
 
-
-class SubPageView(generics.ListCreateAPIView):
-    queryset = SubPage.objects.all()
-    serializer_class = SubPageSerializer
-
-
-class BaseUrlImageView(generics.ListCreateAPIView):
-    queryset = BaseUrlImages.objects.all()
-    serializer_class = BaseUrlSerializers
-
-
-class PageImagesView(generics.ListCreateAPIView):
-    queryset = PageImages.objects.all()
-    serializer_class = PageImagesSerializer
-
+'''
 class UrlDepthView(generics.ListCreateAPIView):
+
     queryset = UrlDepth.objects.all()
     serializer_class = UrlDepthSerializer
     def get_queryset(self,):
         print("this is queryset method")
+'''
 
+
+from django.views.decorators.csrf import csrf_exempt
+
+
+@csrf_exempt
+@api_view(['GET', 'POST'])
+def BaseUrlView(request):
+    if request.method == 'POST':
+        data1=UrlDepth.objects.all()
+        seriazedata=UrlDepthSerializer(data1, many=True)
+        return Response(seriazedata.data, status=status.HTTP_200_OK)
+    elif request.method == 'GET':
+        Response("not workig properly", status=status.HTTP_400_BAD_REQUEST)
+    return HttpResponse("method is not get and not post", status.HTTP_400_BAD_REQUEST)

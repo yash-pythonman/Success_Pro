@@ -9,8 +9,10 @@ import { CrawlerService } from 'src/crawler_services/crawler.service';
 export class SubpageurlComponent implements OnInit {
 
   constructor(private subpag:CrawlerService) { }
-  subpageurls:object
+  subpageurls:object[]
   ngOnInit() {
-    this.subpag.getSubPageUrls().subscribe((res=>{this.subpageurls}))
+    this.subpag.getSubPageUrls().subscribe((res)=>{this.subpageurls=res;
+    console.log(this.subpageurls)
+    })
   }
 }

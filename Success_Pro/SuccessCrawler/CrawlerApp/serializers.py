@@ -1,5 +1,10 @@
 from rest_framework import serializers
-from .models import *
+from .models import BaseUrl
+from .models import BaseUrlImages
+from .models import PageUrl
+from .models import PageImages
+from .models import UrlDepth
+from .models import SubPage
 
 
 class BaseUrlSerializers(serializers.ModelSerializer):
@@ -35,4 +40,4 @@ class PageImagesSerializer(serializers.ModelSerializer):
 class UrlDepthSerializer(serializers.ModelSerializer):
     class Meta:
         model = UrlDepth
-        fields = '__all__'
+        fields = ('url', 'depth')

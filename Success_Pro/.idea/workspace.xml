@@ -6,6 +6,7 @@
       <change beforePath="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/SuccessCrawler/CrawlerApp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SuccessCrawler/SuccessCrawler/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SuccessCrawler/SuccessCrawler/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SuccessCrawler/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/SuccessCrawler/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SuccessCrawler/frontend/__init__.py" beforeDir="false" />
@@ -58,8 +59,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="124" column="31" selection-start-line="124" selection-start-column="31" selection-end-line="124" selection-end-column="31" />
+            <state relative-caret-position="60">
+              <caret line="127" column="31" selection-start-line="127" selection-start-column="31" selection-end-line="127" selection-end-column="31" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -335,8 +336,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SuccessCrawler/CrawlerApp/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="124" column="31" selection-start-line="124" selection-start-column="31" selection-end-line="124" selection-end-column="31" />
+        <state relative-caret-position="60">
+          <caret line="127" column="31" selection-start-line="127" selection-start-column="31" selection-end-line="127" selection-end-column="31" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>

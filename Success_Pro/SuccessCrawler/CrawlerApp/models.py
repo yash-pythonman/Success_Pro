@@ -24,5 +24,5 @@ class PageImages(models.Model):
 
 class UrlDepth(models.Model):
     url=models.CharField(max_length=200)
-    depth=models.IntegerField(max_length=10)
+    depth=models.IntegerField()
 
